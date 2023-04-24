@@ -34,19 +34,19 @@
     </nav>
     <div id="recipesContainer">
         <h3 class="title">All Recipies</h3>
-
+        <div id="recipeBox">
         <?php
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $sql = "SELECT recipeName, recipeID, recipeServingSize, recipePrepTime, recipeDifficulty, recipeImageSrc, recipeDescription FROM recipes";
             $stmt = $conn->prepare($sql);
             $stmt->execute();
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
-        
+            
             while($row = $stmt->fetch()){
                 echo '<div class="recipeCard">';
                 echo '<img src="data:image/jpg;charset=utf8;base64,' . base64_encode($row['recipeImageSrc']) . '">';
                 echo '<h4 class="recipeTitle">' . $row['recipeName'] . '</h4>';
-                echo '<p>' . $row['recipeDifficulty']  . '</p>';
+                echo '<p>   Difficulty: ' . $row['recipeDifficulty']  . '</p>';
                 echo '<p>  Serving Size: ' . $row['recipeServingSize'] . '</p>';
                 echo '<p> Prep Time: ' . $row['recipePrepTime'] . '</p>';
                 echo '</div>';
@@ -55,6 +55,7 @@
 
 
         ?>
+        </div>
     </div>
     <footer>
         <p>Copyright © <?php echo $date; ?> Recipe Manager</p>

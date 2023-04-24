@@ -111,6 +111,8 @@ body{
     min-height:700px;
     font-size:20px;
     font-family: 'Old Standard TT', serif;
+    margin-top:0;
+    margin-left:0;
 }
 
 
@@ -165,14 +167,35 @@ div[id*="Container"]{
     
 }
 
-.recipeCard{
-    background-color: white;
-    width:30%;
+#recipesContainer {
+    width:90%;
     
+    #recipeBox{
+        margin-top:10px;
+        display:grid;
+        grid-template-columns: 1fr 1fr 1fr;
 
-    img{
-        width:50%;
-        object-fit:cover;
+    .recipeCard{
+        background-color: white;
+        margin:10px;
+        border-radius:5px;
+
+        .recipeTitle{
+            border-bottom:5px solid $accentColorDarker;
+            width:60%;
+            margin:auto;
+        }
+
+        img{
+            margin:20px;
+            width:70%;
+            object-fit:cover;
+        }
+    }
+
+    .recipeCard:hover{
+        background-color: rgb(240, 239, 239);
+    }
     }
 }
 
