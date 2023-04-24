@@ -2,6 +2,9 @@
 
     $date = date('Y');
     
+    require 'recipeDbConnect.php';
+    
+
 
 ?>
 <!DOCTYPE html>
@@ -10,8 +13,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="stylesheets/styles.scss" rel="stylesheet">
-    <link href="stylesheets/styles.css" rel="stylesheet">
+    <link href="stylesheets/style.scss" rel="stylesheet">
+    <link href="stylesheets/style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@400;700&display=swap" rel="stylesheet">
     <title>Recipe Home</title>
 </head>
 <body>
@@ -27,7 +33,28 @@
         </ul>
     </nav>
     <div id="recipesContainer">
+        <h3 class="title">All Recipies</h3>
 
+        <?php
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $sql = "SELECT recipeName, recipeID, recipeServingSize, recipePrepTime, recipeDifficulty, recipeImageSrc, recipeDescription FROM recipes";
+            $stmt = $conn->prepare($sql);
+            $stmt->execute();
+            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        
+            while($row = $stmt->fetch()){
+                echo '<div class="recipeCard">';
+                echo '<img src="data:image/jpg;charset=utf8;base64,' . base64_encode($row['recipeImageSrc']) . '">';
+                echo '<h4 class="recipeTitle">' . $row['recipeName'] . '</h4>';
+                echo '<p>' . $row['recipeDifficulty']  . '</p>';
+                echo '<p>  Serving Size: ' . $row['recipeServingSize'] . '</p>';
+                echo '<p> Prep Time: ' . $row['recipePrepTime'] . '</p>';
+                echo '</div>';
+            }
+
+
+
+        ?>
     </div>
     <footer>
         <p>Copyright © <?php echo $date; ?> Recipe Manager</p>

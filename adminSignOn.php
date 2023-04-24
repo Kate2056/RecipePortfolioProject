@@ -50,12 +50,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="stylesheets/styles.scss">
-    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/style.scss">
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@400;700&display=swap" rel="stylesheet">
     <title>Recipe Home</title>
 </head>
 <body>
     <header>
+        <img src="images/bannerImage.jpg" alt="Banner background image of food"id="bannerImage">
         <h1>WDV341 and WDV321 Portfolio Project: Recipe Manager</h1>
     
     <?php
@@ -63,7 +67,7 @@
 
     ?>
     <h3 id="signOut"><a href="logout.php">Sign Out </a></h3>
-    <h3>Signed in as: <?php echo $inUsername; ?></h3>
+    <h3>Signed in as: <?php echo $_SESSION['username']; ?></h3>
     
     </header>
     <nav>
@@ -91,6 +95,7 @@
         </ul>
     </nav>
     <div id="signOnContainer">
+        <h3 class="title">Admin Sign On</h3>
         <form method="POST" action="adminSignOn.php">
             <span><?php echo $errorMsg ?></span>
             <p>
