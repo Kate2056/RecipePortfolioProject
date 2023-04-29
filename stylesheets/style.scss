@@ -1,6 +1,7 @@
 $secondaryFontColor: white;
 $accentColor: rgb(111, 24, 24);
 $accentColorDarker:rgb(94, 20, 20);
+$containerBackground: rgb(213, 210, 210);
 
 #hide, #addRecipeContainer #hide{
     display:none;
@@ -106,7 +107,7 @@ nav{
 }
 
 body{
-    background-color: rgb(228, 228, 228);
+    background-color: $secondaryFontColor;
     border-radius:2px;
     width:100%;
     min-height:700px;
@@ -118,7 +119,7 @@ body{
 
 
 div[id*="Container"]{
-    background-color:rgb(173, 168, 168);
+    background-color:$containerBackground;
     width:70%;
     padding:20px;
     min-height:250px;
@@ -187,6 +188,7 @@ div[id*="Container"]{
         background-color: white;
         margin:10px;
         border-radius:5px;
+        box-shadow: 5px 5px 8px 5px #a6a5a5;
 
         .recipeTitle{
             border-bottom:5px solid $accentColorDarker;
@@ -208,7 +210,7 @@ div[id*="Container"]{
 }
 #selectedRecipe{
     width:70%;
-    background-color:rgb(173, 168, 168);
+    background-color:$containerBackground;
     margin:auto;
     padding-top:10px;
     margin-top:10px;
@@ -239,6 +241,26 @@ div[id*="Container"]{
         margin-top:20px;
         width:50%;
         object-fit:cover;
+    }
+    #ingredientSizeRadio{
+       text-align:center;
+    }
+
+    #ingredientSizeRadio input[type="radio"]{
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        display: inline-block;
+        width: 20px;
+        height: 20px;  
+        padding: 3px;
+        background-clip: content-box;
+        border: 2px solid $accentColor;
+        border-radius: 50%;
+    }
+
+    #ingredientSizeRadio input[type="radio"]:checked{
+        background-color: $accentColor;
     }
 }
 

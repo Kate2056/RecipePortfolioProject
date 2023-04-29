@@ -39,17 +39,15 @@
                         if(empty($_FILES["recipeImgSrc"]["name"])) { 
                             $recipeImgError = 'Please select an image file to upload.'; 
                         }else{
-                            $fileName = basename($_FILES["recipeImgSrc"]["name"]); 
-                            $fileType = pathinfo($fileName, PATHINFO_EXTENSION); 
-                             
-                            $allowTypes = array('jpg','png','jpeg','gif'); 
-                            if(!in_array($fileType, $allowTypes)){ 
-                                $recipeImgError = 'Sorry, only JPG, JPEG, PNG, & GIF files are allowed to upload.'; 
-                            }else{
-                                $image = $_FILES['recipeImgSrc']['tmp_name']; 
-                                $imgContent = addslashes(file_get_contents($image)); 
+                            $fileName = $_FILES["recipeImgSrc"]["name"];
+                            $target_file = './uploads/'.$fileName;
+                            move_uploaded_file($_FILES['recipeImgSrc']['tmp_name'], $target_file);
+                            $fp = fopen($target_file, 'r');
+                            $imgContent = fread($fp, filesize($target_file));
+                            $imgContent = addslashes($imgContent);
+                            fclose($fp);
     
-                                    if($_POST['recipeInstructions'] == ""){
+                            if($_POST['recipeInstructions'] == ""){
                                         $recipeInstruError = "Please Enter Instructions";
                                     }else if($_POST['recipeIngredientName1'] == "" || $_POST['recipeIngredientAmount1'] == "") {
                                             $recipeIngredientError = "Please enter an ingredient name and amount";
@@ -126,14 +124,12 @@
                                                     $stmt->execute();
                                                 }
                                             }
-                                            
+                                        }
                                             
                                         }
 
                                         $displayForm = false;
                                     }
-                                }
-                            }   
                         }
                     }
              }

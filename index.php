@@ -45,11 +45,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="stylesheets/style.scss" rel="stylesheet">
     <link href="stylesheets/style.css" rel="stylesheet">
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@400;700&display=swap" rel="stylesheet">
     <title>Recipe Home</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="Ingredient.js"></script>
     <script src="Recipe.js"></script>
     <script>
@@ -57,13 +57,16 @@
         const ingredients = [];
         const recipes = [];
 
+        let selectedButton = 1;
+
         function changeIngredientSize(inRecipeIndex, inRecipeID, value){
             //alert("Inside changeIngredientSize");
+            selectedButton = parseFloat(value);
+
             $.getJSON("recipeIngredients.json", function (data) {
                 $.each(data, function (key, model) {
                     if(model.recipeID == inRecipeID){
                         let index = ingredients.findIndex(item => item.ingredientID === model.ingredientID);
-                        console.log(index);
                         let newIngredient = parseFloat(value) * model.ingredientAmount;
                         ingredients[index].setIngredientAmount(newIngredient);
                         
@@ -80,6 +83,7 @@
                     }
                 })
             });
+
         }
         
         function getRecipe(inRecipeID){
@@ -108,18 +112,34 @@
                     selectedRecipe = '<div class="recipeCard"><h4 class="recipeTitle">' + recipe.getRecipeName() + '</h4><img class="recipeImg" src="data:image/jpeg;base64, ' + recipe.getRecipeImage() + 
                         '" alt="Photo for ' + recipe.getRecipeName() + '"><p><strong>   Difficulty:</strong>  ' + recipe.getRecipeDifficulty() + '</p><p><strong> Serving Size:</strong>  ' + recipe.getRecipeServingSize() +
                         '</p><p><strong>  Prep Time:</strong>  ' + recipe.getRecipePrepTime() + 
-                            '</p> <div id="ingredientSizeRadio"> <input type="radio" id="half" name="ingredientSize" value="0.5" onchange="changeIngredientSize(' + i + ", " + recipe.getRecipeID() + 
-                            ', this.value )"> <label for="ingredientSize">Half</label> <input type="radio" id="1x" name="ingredientSize" value="1" onchange="changeIngredientSize(' + i + ", " + recipe.getRecipeID() + 
-                            ', this.value)"> <label for="ingredientSize">1X</label> <input type="radio" id="2x" name="ingredientSize" value="2" onchange="changeIngredientSize(' + i + ", " + recipe.getRecipeID() + 
-                            ', this.value)"> <label for="ingredientSize">2X</label> <input type="radio" id="3x" name="ingredientSize" value="3" onchange="changeIngredientSize(' + i + ", " + recipe.getRecipeID() + 
+                            '</p> <div id="ingredientSizeRadio"> <input type="radio" id="halfSize" name="ingredientSize" value="0.5" onchange="changeIngredientSize(' + i + ", " + recipe.getRecipeID() + 
+                            ', this.value )"> <label for="ingredientSize">Half</label> <input type="radio" id="originalSize" name="ingredientSize" value="1" onchange="changeIngredientSize(' + i + ", " + recipe.getRecipeID() + 
+                            ', this.value)"> <label for="ingredientSize">1X</label> <input type="radio" id="twoTimesSize" name="ingredientSize" value="2" onchange="changeIngredientSize(' + i + ", " + recipe.getRecipeID() + 
+                            ', this.value)"> <label for="ingredientSize">2X</label> <input type="radio" id="threeTimesSize" name="ingredientSize" value="3" onchange="changeIngredientSize(' + i + ", " + recipe.getRecipeID() + 
                         ', this.value)"> <label for="ingredientSize">3X</label></div> <p><strong> Ingredients: </strong> </p> <ul>' 
                         + selectedRecipeIngredients + '</ul><p> <strong> Instructions: </strong> </p><div id="instructions"><p>' + recipe.getRecipeInstructions() + '</p></div></div>';
                     }
             }
-
             document.querySelector('#selectedRecipe').innerHTML = selectedRecipe;
             document.querySelector("#selectedRecipe").style.visibility = "visible";
             const element = document.querySelector("#selectedRecipe");
+
+            if(selectedButton == 0.5){
+                document.querySelector("#halfSize").checked = true;
+            }else{
+                if(selectedButton == 1){
+                    document.querySelector("#originalSize").checked = true;
+                }else{
+                    if(selectedButton == 2){
+                        document.querySelector("#twoTimesSize").checked = true;
+                    }else{
+                        if(selectedButton == 3){
+                            document.querySelector("#threeTimesSize").checked = true;
+                        }
+                    }
+                }   
+            }
+
             element.scrollIntoView();
         }
         
@@ -195,14 +215,7 @@
     </nav>
     <div id="recipesContainer">
         <h3 class="title">All Recipies</h3>
-        <div id="recipeBox">
-            
-        <?php
-            
-            //    echo '<img src="data:image/jpg;charset=utf8;base64,' . base64_encode($row['recipeImageSrc']) . '">';
-
-        ?>
-        </div>
+        <div id="recipeBox"></div>
     </div>
     <div id="selectedRecipe"></div>
     <footer>

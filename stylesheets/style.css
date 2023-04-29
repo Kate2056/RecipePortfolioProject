@@ -89,7 +89,7 @@ nav li:hover {
 }
 
 body {
-  background-color: rgb(228, 228, 228);
+  background-color: white;
   border-radius: 2px;
   width: 100%;
   min-height: 700px;
@@ -100,7 +100,7 @@ body {
 }
 
 div[id*=Container] {
-  background-color: rgb(173, 168, 168);
+  background-color: rgb(213, 210, 210);
   width: 70%;
   padding: 20px;
   min-height: 250px;
@@ -156,6 +156,7 @@ div[id*=Container] {
   background-color: white;
   margin: 10px;
   border-radius: 5px;
+  box-shadow: 5px 5px 8px 5px #a6a5a5;
 }
 #recipesContainer #recipeBox .recipeCard .recipeTitle {
   border-bottom: 5px solid rgb(94, 20, 20);
@@ -174,7 +175,7 @@ div[id*=Container] {
 
 #selectedRecipe {
   width: 70%;
-  background-color: rgb(173, 168, 168);
+  background-color: rgb(213, 210, 210);
   margin: auto;
   padding-top: 10px;
   margin-top: 10px;
@@ -202,6 +203,24 @@ div[id*=Container] {
   width: 50%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+#selectedRecipe #ingredientSizeRadio {
+  text-align: center;
+}
+#selectedRecipe #ingredientSizeRadio input[type=radio] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  padding: 3px;
+  background-clip: content-box;
+  border: 2px solid rgb(111, 24, 24);
+  border-radius: 50%;
+}
+#selectedRecipe #ingredientSizeRadio input[type=radio]:checked {
+  background-color: rgb(111, 24, 24);
 }
 
 input {

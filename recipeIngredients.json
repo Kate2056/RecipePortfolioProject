@@ -124,5 +124,264 @@
         "ingredientMeasurement": "Tbsp",
         "ingredientAmount": 5,
         "ingredientName": "Ice Water"
+    },
+    {
+        "recipeID": 25,
+        "ingredientID": 36,
+        "ingredientMeasurement": "Cup",
+        "ingredientAmount": 0.5,
+        "ingredientName": "Sour Cream (optional)"
+    },
+    {
+        "recipeID": 31,
+        "ingredientID": 37,
+        "ingredientMeasurement": null,
+        "ingredientAmount": 1,
+        "ingredientName": "Pie Crust"
+    },
+    {
+        "recipeID": 31,
+        "ingredientID": 38,
+        "ingredientMeasurement": "Cup",
+        "ingredientAmount": 2.5,
+        "ingredientName": "Chopped Apples"
+    },
+    {
+        "recipeID": 31,
+        "ingredientID": 39,
+        "ingredientMeasurement": "Cup",
+        "ingredientAmount": 1,
+        "ingredientName": "Sugar"
+    },
+    {
+        "recipeID": 31,
+        "ingredientID": 40,
+        "ingredientMeasurement": "Tbsp",
+        "ingredientAmount": 2,
+        "ingredientName": "Honey"
+    },
+    {
+        "recipeID": 31,
+        "ingredientID": 41,
+        "ingredientMeasurement": "tsp",
+        "ingredientAmount": 1.5,
+        "ingredientName": "Vanilla Extract"
+    },
+    {
+        "recipeID": 31,
+        "ingredientID": 42,
+        "ingredientMeasurement": "tsp",
+        "ingredientAmount": 2,
+        "ingredientName": "Cinnamin"
+    },
+    {
+        "recipeID": 31,
+        "ingredientID": 43,
+        "ingredientMeasurement": "Tbsp",
+        "ingredientAmount": 2,
+        "ingredientName": "Flour"
+    },
+    {
+        "recipeID": 31,
+        "ingredientID": 44,
+        "ingredientMeasurement": "Cup",
+        "ingredientAmount": 1,
+        "ingredientName": "Butter"
+    },
+    {
+        "recipeID": 31,
+        "ingredientID": 45,
+        "ingredientMeasurement": "Tbsp",
+        "ingredientAmount": 1,
+        "ingredientName": "Orange Zest"
+    },
+    {
+        "recipeID": 31,
+        "ingredientID": 46,
+        "ingredientMeasurement": "Tbsp",
+        "ingredientAmount": 1,
+        "ingredientName": "Orange Juice"
+    },
+    {
+        "recipeID": 31,
+        "ingredientID": 47,
+        "ingredientMeasurement": "Cup",
+        "ingredientAmount": 0.5,
+        "ingredientName": "Flour"
+    },
+    {
+        "recipeID": 31,
+        "ingredientID": 48,
+        "ingredientMeasurement": "Cup",
+        "ingredientAmount": 0.5,
+        "ingredientName": "Brown Sugar"
+    },
+    {
+        "recipeID": 31,
+        "ingredientID": 49,
+        "ingredientMeasurement": "Cup",
+        "ingredientAmount": 1,
+        "ingredientName": "Rolled Oats"
+    },
+    {
+        "recipeID": 32,
+        "ingredientID": 50,
+        "ingredientMeasurement": null,
+        "ingredientAmount": 1,
+        "ingredientName": "Pie Crust, baked"
+    },
+    {
+        "recipeID": 32,
+        "ingredientID": 51,
+        "ingredientMeasurement": "Quart",
+        "ingredientAmount": 1,
+        "ingredientName": "Strawberries"
+    },
+    {
+        "recipeID": 32,
+        "ingredientID": 52,
+        "ingredientMeasurement": "Cup ",
+        "ingredientAmount": 1,
+        "ingredientName": "Sugar"
+    },
+    {
+        "recipeID": 32,
+        "ingredientID": 53,
+        "ingredientMeasurement": "Tbsp",
+        "ingredientAmount": 3,
+        "ingredientName": "Cornstarch"
+    },
+    {
+        "recipeID": 32,
+        "ingredientID": 54,
+        "ingredientMeasurement": "Cup",
+        "ingredientAmount": 0.75,
+        "ingredientName": "Water"
+    },
+    {
+        "recipeID": 32,
+        "ingredientID": 55,
+        "ingredientMeasurement": "tsp",
+        "ingredientAmount": 1,
+        "ingredientName": "Vanilla Extract"
+    },
+    {
+        "recipeID": 32,
+        "ingredientID": 56,
+        "ingredientMeasurement": "tsp",
+        "ingredientAmount": 0.5,
+        "ingredientName": "Almond Extract"
+    },
+    {
+        "recipeID": 33,
+        "ingredientID": 57,
+        "ingredientMeasurement": "Cup",
+        "ingredientAmount": 1,
+        "ingredientName": "Softened Butter"
+    },
+    {
+        "recipeID": 33,
+        "ingredientID": 58,
+        "ingredientMeasurement": "Cup",
+        "ingredientAmount": 1,
+        "ingredientName": "Sugar"
+    },
+    {
+        "recipeID": 33,
+        "ingredientID": 59,
+        "ingredientMeasurement": "Cup",
+        "ingredientAmount": 0.5,
+        "ingredientName": "Brown Sugar"
+    },
+    {
+        "recipeID": 33,
+        "ingredientID": 60,
+        "ingredientMeasurement": null,
+        "ingredientAmount": 2,
+        "ingredientName": "Eggs"
+    },
+    {
+        "recipeID": 33,
+        "ingredientID": 61,
+        "ingredientMeasurement": "Tbsp",
+        "ingredientAmount": 1,
+        "ingredientName": "Vanilla"
+    },
+    {
+        "recipeID": 33,
+        "ingredientID": 62,
+        "ingredientMeasurement": "tsp",
+        "ingredientAmount": 2,
+        "ingredientName": "Espresso Powder (optional)"
+    },
+    {
+        "recipeID": 33,
+        "ingredientID": 63,
+        "ingredientMeasurement": "Cup",
+        "ingredientAmount": 2.75,
+        "ingredientName": "Flour"
+    },
+    {
+        "recipeID": 33,
+        "ingredientID": 64,
+        "ingredientMeasurement": "tsp",
+        "ingredientAmount": 0.75,
+        "ingredientName": "Salt"
+    },
+    {
+        "recipeID": 33,
+        "ingredientID": 65,
+        "ingredientMeasurement": "tsp",
+        "ingredientAmount": 0.75,
+        "ingredientName": "Baking Soda"
+    },
+    {
+        "recipeID": 33,
+        "ingredientID": 66,
+        "ingredientMeasurement": "Cup",
+        "ingredientAmount": 2.5,
+        "ingredientName": "Chocolate Chips\/Chopped Chocolate Bar"
+    },
+    {
+        "recipeID": 34,
+        "ingredientID": 67,
+        "ingredientMeasurement": "sg",
+        "ingredientAmount": 1,
+        "ingredientName": "sg"
+    },
+    {
+        "recipeID": 36,
+        "ingredientID": 68,
+        "ingredientMeasurement": "gfw",
+        "ingredientAmount": 1,
+        "ingredientName": "ffd"
+    },
+    {
+        "recipeID": 36,
+        "ingredientID": 69,
+        "ingredientMeasurement": "gs",
+        "ingredientAmount": 1,
+        "ingredientName": "sg"
+    },
+    {
+        "recipeID": 36,
+        "ingredientID": 70,
+        "ingredientMeasurement": "gfds",
+        "ingredientAmount": 2,
+        "ingredientName": "gfs"
+    },
+    {
+        "recipeID": 36,
+        "ingredientID": 71,
+        "ingredientMeasurement": "fsda",
+        "ingredientAmount": 1,
+        "ingredientName": "fda"
+    },
+    {
+        "recipeID": 40,
+        "ingredientID": 72,
+        "ingredientMeasurement": "Tbsp",
+        "ingredientAmount": 2,
+        "ingredientName": "Cooking Oil"
     }
 ]
