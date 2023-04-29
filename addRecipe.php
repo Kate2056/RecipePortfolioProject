@@ -184,6 +184,7 @@
             recipeIngredientName.name = "recipeIngredientName" + ingredientCount;
             recipeIngredientName.placeholder = "Name";
             recipeIngredientName.type = "text";
+            recipeIngredientName.style.width = "22%";
 
             //<input type="text" name="recipeIngredientUnit" class="recipeIngredients" placeholder="Amount">
             let recipeIngredientAmount = document.createElement("input");
@@ -191,6 +192,7 @@
             recipeIngredientAmount.name = "recipeIngredientAmount" + ingredientCount;
             recipeIngredientAmount.placeholder = "Amount";
             recipeIngredientAmount.type = "text";
+            recipeIngredientAmount.style.width = "22%";
 
             //<input type="text" name="recipeIngredientMeasurement" class="recipeIngredients" placeholder="Measurement">
             let recipeIngredientMeasurement = document.createElement("input");
@@ -198,10 +200,15 @@
             recipeIngredientMeasurement.name = "recipeIngredientMeasurement" + ingredientCount;
             recipeIngredientMeasurement.placeholder = "Measurement";
             recipeIngredientMeasurement.type = "text";
+            recipeIngredientMeasurement.style.width = "22%";
 
-			newIngredientSection.appendChild(recipeIngredientName);
+            let blankLabel = document.createElement("label");
+            blankLabel.style.width = "30%";
+
+            newIngredientSection.appendChild(blankLabel);
             newIngredientSection.appendChild(recipeIngredientAmount);
             newIngredientSection.appendChild(recipeIngredientMeasurement);
+            newIngredientSection.appendChild(recipeIngredientName);
 
 			document.querySelector("#addRecipe").insertBefore(newIngredientSection, document.querySelector("#ingredientButton"));
         }
@@ -260,9 +267,9 @@
             <span id="recipeIngriedientError"><?php echo $recipeIngredientError ?></span>
             <p class="ingredientSection" id="1">
                 <label for="recipeIngredients">Ingredients: </label> 
-                <input type="text" name="recipeIngredientName1" class="recipeIngredients" placeholder="Name" >
-                <input type="text" name="recipeIngredientAmount1" class="recipeIngredients" placeholder="Amount">
-                <input type="text" name="recipeIngredientMeasurement1" class="recipeIngredients" placeholder="Measurement">
+                <input type="text" name="recipeIngredientAmount1" class="recipeIngredients" placeholder="Ex. 1">
+                <input type="text" name="recipeIngredientMeasurement1" class="recipeIngredients" placeholder="Ex. Tbsp (optional)">
+                <input type="text" name="recipeIngredientName1" class="recipeIngredients" placeholder="Ex. Oil" >
                 
             </p>
             <button type="button" id="ingredientButton" class="button">New Ingredient</button>

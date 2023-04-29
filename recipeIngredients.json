@@ -1,0 +1,128 @@
+[
+    {
+        "recipeID": 25,
+        "ingredientID": 5,
+        "ingredientMeasurement": "Tbsp",
+        "ingredientAmount": 2,
+        "ingredientName": "Cooking Oil"
+    },
+    {
+        "recipeID": 25,
+        "ingredientID": 6,
+        "ingredientMeasurement": "Cup",
+        "ingredientAmount": 1,
+        "ingredientName": "Onion"
+    },
+    {
+        "recipeID": 25,
+        "ingredientID": 7,
+        "ingredientMeasurement": "Tbsp",
+        "ingredientAmount": 4,
+        "ingredientName": "Chili Powder"
+    },
+    {
+        "recipeID": 25,
+        "ingredientID": 8,
+        "ingredientMeasurement": "tsp",
+        "ingredientAmount": 1,
+        "ingredientName": "Hot Chili Powder (optional)"
+    },
+    {
+        "recipeID": 25,
+        "ingredientID": 9,
+        "ingredientMeasurement": "lb",
+        "ingredientAmount": 1,
+        "ingredientName": "Ground Beef or Chicken"
+    },
+    {
+        "recipeID": 25,
+        "ingredientID": 10,
+        "ingredientMeasurement": "Cans",
+        "ingredientAmount": 2,
+        "ingredientName": "Red Beans"
+    },
+    {
+        "recipeID": 25,
+        "ingredientID": 11,
+        "ingredientMeasurement": "Cans",
+        "ingredientAmount": 2,
+        "ingredientName": "Kidney Beans"
+    },
+    {
+        "recipeID": 25,
+        "ingredientID": 12,
+        "ingredientMeasurement": "Cans",
+        "ingredientAmount": 2,
+        "ingredientName": "Tomato Sauce"
+    },
+    {
+        "recipeID": 25,
+        "ingredientID": 13,
+        "ingredientMeasurement": "Cans",
+        "ingredientAmount": 2,
+        "ingredientName": "Tomato Puree"
+    },
+    {
+        "recipeID": 25,
+        "ingredientID": 14,
+        "ingredientMeasurement": "Cup",
+        "ingredientAmount": 1,
+        "ingredientName": "Shredded Cheese (optional)"
+    },
+    {
+        "recipeID": 27,
+        "ingredientID": 28,
+        "ingredientMeasurement": "Cup",
+        "ingredientAmount": 1,
+        "ingredientName": "Lard"
+    },
+    {
+        "recipeID": 27,
+        "ingredientID": 29,
+        "ingredientMeasurement": "Cup",
+        "ingredientAmount": 1,
+        "ingredientName": "Butter"
+    },
+    {
+        "recipeID": 27,
+        "ingredientID": 30,
+        "ingredientMeasurement": "Cup",
+        "ingredientAmount": 3,
+        "ingredientName": "Flour"
+    },
+    {
+        "recipeID": 27,
+        "ingredientID": 31,
+        "ingredientMeasurement": null,
+        "ingredientAmount": 1,
+        "ingredientName": "Egg"
+    },
+    {
+        "recipeID": 27,
+        "ingredientID": 32,
+        "ingredientMeasurement": "Tbsp",
+        "ingredientAmount": 2,
+        "ingredientName": "Vodka"
+    },
+    {
+        "recipeID": 27,
+        "ingredientID": 33,
+        "ingredientMeasurement": "tsp",
+        "ingredientAmount": 2,
+        "ingredientName": "Sugar"
+    },
+    {
+        "recipeID": 27,
+        "ingredientID": 34,
+        "ingredientMeasurement": "tsp",
+        "ingredientAmount": 1,
+        "ingredientName": "Salt"
+    },
+    {
+        "recipeID": 27,
+        "ingredientID": 35,
+        "ingredientMeasurement": "Tbsp",
+        "ingredientAmount": 5,
+        "ingredientName": "Ice Water"
+    }
+]
