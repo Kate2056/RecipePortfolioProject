@@ -57,6 +57,30 @@
         const ingredients = [];
         const recipes = [];
 
+        function changeIngredientSize(inRecipeIndex, inRecipeID, value){
+            //alert("Inside changeIngredientSize");
+            $.getJSON("recipeIngredients.json", function (data) {
+                $.each(data, function (key, model) {
+                    if(model.recipeID == inRecipeID){
+                        let index = ingredients.findIndex(item => item.ingredientID === model.ingredientID);
+                        console.log(index);
+                        let newIngredient = parseFloat(value) * model.ingredientAmount;
+                        ingredients[index].setIngredientAmount(newIngredient);
+                        
+                    }
+                })
+            });
+
+            $.getJSON("recipeData.json", function (data) {
+                $.each(data, function (key, model) {
+                    if(model.recipeID == inRecipeID){
+                        let newServingSize = parseFloat(value) * model.recipeServingSize;
+                        recipes[inRecipeIndex].setRecipeServingSize(newServingSize);
+                        getRecipe(inRecipeID);
+                    }
+                })
+            });
+        }
         
         function getRecipe(inRecipeID){
             let selectedRecipeIngredients = "";
@@ -83,8 +107,13 @@
                 if(recipe.getRecipeID() == inRecipeID){
                     selectedRecipe = '<div class="recipeCard"><h4 class="recipeTitle">' + recipe.getRecipeName() + '</h4><img class="recipeImg" src="data:image/jpeg;base64, ' + recipe.getRecipeImage() + 
                         '" alt="Photo for ' + recipe.getRecipeName() + '"><p><strong>   Difficulty:</strong>  ' + recipe.getRecipeDifficulty() + '</p><p><strong> Serving Size:</strong>  ' + recipe.getRecipeServingSize() +
-                        '</p><p><strong>  Prep Time:</strong>  ' + recipe.getRecipePrepTime() + '</p> <p><strong> Ingredients: </strong> </p> <ul>' + selectedRecipeIngredients + 
-                        '</ul><p> <strong> Instructions: </strong> </p><div id="instructions"><p>' + recipe.getRecipeInstructions() + '</p></div></div>';
+                        '</p><p><strong>  Prep Time:</strong>  ' + recipe.getRecipePrepTime() + 
+                            '</p> <div id="ingredientSizeRadio"> <input type="radio" id="half" name="ingredientSize" value="0.5" onchange="changeIngredientSize(' + i + ", " + recipe.getRecipeID() + 
+                            ', this.value )"> <label for="ingredientSize">Half</label> <input type="radio" id="1x" name="ingredientSize" value="1" onchange="changeIngredientSize(' + i + ", " + recipe.getRecipeID() + 
+                            ', this.value)"> <label for="ingredientSize">1X</label> <input type="radio" id="2x" name="ingredientSize" value="2" onchange="changeIngredientSize(' + i + ", " + recipe.getRecipeID() + 
+                            ', this.value)"> <label for="ingredientSize">2X</label> <input type="radio" id="3x" name="ingredientSize" value="3" onchange="changeIngredientSize(' + i + ", " + recipe.getRecipeID() + 
+                        ', this.value)"> <label for="ingredientSize">3X</label></div> <p><strong> Ingredients: </strong> </p> <ul>' 
+                        + selectedRecipeIngredients + '</ul><p> <strong> Instructions: </strong> </p><div id="instructions"><p>' + recipe.getRecipeInstructions() + '</p></div></div>';
                     }
             }
 
