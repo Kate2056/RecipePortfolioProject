@@ -6,6 +6,7 @@ class Recipe{
     recipeServingSize;
     recipePrepTime;
     recipeInstructions;
+    recipeImage;
 
     //Constructor
     constructor(){
@@ -15,6 +16,7 @@ class Recipe{
         this.recipeServingSize = 0;
         this.recipePrepTime = "";
         this.recipeInstructions = "";
+        this.recipeImage = "";
 
     }
 
@@ -65,6 +67,14 @@ class Recipe{
    
     setRecipeInstructions(inRecipeInstructions){
         this.recipeInstructions = inRecipeInstructions;
+    }
+
+    getRecipeImage(){
+        return this.recipeImage;
+    }
+   
+    setRecipeImage(inRecipeImage){
+        this.recipeImage = inRecipeImage;
     }
 
     

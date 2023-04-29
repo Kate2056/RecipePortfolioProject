@@ -231,6 +231,14 @@ div[id*="Container"]{
         width:70%;
         margin:auto;
     }
+
+    .recipeImg{
+        display:block;
+        margin:auto;
+        margin-top:20px;
+        width:50%;
+        object-fit:cover;
+    }
 }
 
 input{
