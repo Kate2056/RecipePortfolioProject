@@ -186,6 +186,9 @@ div[id*="Container"]{
     
 }
 
+#contactContainer #hide{
+    display:none;
+}
 
 #recipesContainer {
     width:90%;
@@ -285,13 +288,24 @@ div[id*="Container"]{
         margin:auto;
         height:35px;
         font-size:25px;
-        font-family: 'Old Standard TT', serif;
+        @include fontStyle;
         font-size:15px;
         font-weight:bold;
         border-radius:5px;
-        
+        background-color: white;
     }
-
+    a{
+        text-decoration: none;
+        color:$secondaryFontColor;
+    }
+    a:visited{
+        text-decoration: none;
+        color:$secondaryFontColor;
+    }
+    a:hover{
+        text-decoration: none;
+        color:$secondaryFontColor;
+    }
     #deleteRecipeButton:hover{
         background-color: $accentColor;
         color:$secondaryFontColor;

@@ -145,6 +145,10 @@ div[id*=Container] {
   width: 30%;
 }
 
+#contactContainer #hide {
+  display: none;
+}
+
 #recipesContainer {
   width: 90%;
 }
@@ -229,10 +233,23 @@ div[id*=Container] {
   margin: auto;
   height: 35px;
   font-size: 25px;
-  font-family: "Old Standard TT", serif;
+  font-family: "Noto Serif", serif;
   font-size: 15px;
   font-weight: bold;
   border-radius: 5px;
+  background-color: white;
+}
+#selectedRecipe a {
+  text-decoration: none;
+  color: white;
+}
+#selectedRecipe a:visited {
+  text-decoration: none;
+  color: white;
+}
+#selectedRecipe a:hover {
+  text-decoration: none;
+  color: white;
 }
 #selectedRecipe #deleteRecipeButton:hover {
   background-color: rgb(137, 17, 17);

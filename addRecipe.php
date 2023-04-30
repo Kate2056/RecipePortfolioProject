@@ -13,7 +13,7 @@
     else{
         header("Location: adminSignOn.php");
     }
-
+    $errorMsg = "";
     $recipeNameError = "";
     $recipeDifficultyError = "";
     $recipeServingError = "";
@@ -39,23 +39,27 @@
                         if(empty($_FILES["recipeImgSrc"]["name"])) { 
                             $recipeImgError = 'Please select an image file to upload.'; 
                         }else{
-                            $fileName = $_FILES["recipeImgSrc"]["name"];
-                            $target_file = './uploads/'.$fileName;
-                            move_uploaded_file($_FILES['recipeImgSrc']['tmp_name'], $target_file);
-                            $fp = fopen($target_file, 'r');
-                            $imgContent = fread($fp, filesize($target_file));
-                            $imgContent = addslashes($imgContent);
-                            fclose($fp);
+                            try{
+                                $fileName = $_FILES["recipeImgSrc"]["name"];
+                                $target_file = './uploads/'.$fileName;
+                                move_uploaded_file($_FILES['recipeImgSrc']['tmp_name'], $target_file);
+                                $fp = fopen($target_file, 'r');
+                                $imgContent = fread($fp, filesize($target_file));
+                                $imgContent = addslashes($imgContent);
+                                fclose($fp);
+                            }catch (PDOException $e){
+                                $errorMsg = "Issues with image, error message: " . $e->getMessage();;
+                            }
     
                             if($_POST['recipeInstructions'] == ""){
-                                        $recipeInstruError = "Please Enter Instructions";
-                                    }else if($_POST['recipeIngredientName1'] == "" || $_POST['recipeIngredientAmount1'] == "") {
-                                            $recipeIngredientError = "Please enter an ingredient name and amount";
-                                        } else{
-                                            
+                                $recipeInstruError = "Please Enter Instructions";
+                            }else {
+                                if($_POST['recipeIngredientName1'] == "" || $_POST['recipeIngredientAmount1'] == "") {
+                                    $recipeIngredientError = "Please enter an ingredient name and amount";
+                                } else{
+                                    $displayForm = false;
+                                    try{
 
-                                        $displayForm = false;
-        
                                         require 'recipeDbConnect.php';
         
                                         $recipeName = $_POST['recipeName'];
@@ -123,20 +127,22 @@
         
                                                     $stmt->execute();
                                                 }
+                                            
                                             }
                                         }
-                                            
-                                        }
-
-                                        $displayForm = false;
+                                    }catch (PDOException $e){
+                                        $errorMsg = "Issues with sql, error message: " . $e->getMessage();;
                                     }
+                                            
+                                }
+                                $displayForm = false;
+                            }
                         }
                     }
-             }
-    
-    }    
-}
-    else{
+                }
+            }    
+        }
+    }else{
         $displayForm = true;
     
     }
@@ -155,11 +161,15 @@
     <link rel="stylesheet" href="stylesheets/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@400;700&display=swap" rel="stylesheet">
     <title>Add Recipe</title>
     <script>
         let ingredientCount = 1;
-
+        document.cookie="ingredientCount=" + ingredientCount;
+        
         function onLoad(){
             document.querySelector("#ingredientButton").onclick = addIngredient;
         }
@@ -228,6 +238,7 @@
     </nav>
     <div id="addRecipeContainer">
     <h3 class="title">Add New Recipe</h3>
+    <span><?php echo $errorMsg; ?></span>
         <form method="POST" action="addRecipe.php"  enctype="multipart/form-data" id="addRecipe">
             <p>
                 <label for="recipeName">Recipe Name: </label>
@@ -324,6 +335,7 @@
     </nav>
     <div id="addRecipeContainer">
     <h3 class="title">Recipe Added!</h3>
+        <span><?php echo $errorMsg; ?></span>
         <p> Your recipe was successfuly added to the database!</p>
     </div>
     <footer>

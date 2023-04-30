@@ -2,7 +2,9 @@
 
     $date = date('Y');
     $recipeArray[] = "";
+    $errorMsg = "";
 
+    try{
     require 'recipeDbConnect.php';
     
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -32,7 +34,9 @@
     $fp = fopen('recipeIngredients.json', 'w');
     fwrite($fp, json_encode($data, JSON_PRETTY_PRINT));
     fclose($fp);
-
+    }catch (PDOException $e){
+       $errorMsg = "Issues with progam, error message: " . $e->getMessage();;
+    }
     
     
     
@@ -45,6 +49,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="stylesheets/style.scss" rel="stylesheet">
     <link href="stylesheets/style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@400;700&display=swap" rel="stylesheet">
@@ -215,6 +222,7 @@
     </nav>
     <div id="recipesContainer">
         <h3 class="title">All Recipies</h3>
+        <span><?php echo $errorMsg;?></span>
         <div id="recipeBox"></div>
     </div>
     <div id="selectedRecipe"></div>

@@ -12,6 +12,7 @@
         $inUsername = $_POST['inUsername'];
         $inPassword = $_POST['inPassword'];
 
+        try{
         require 'recipeDbConnect.php';
         $sql = 'SELECT recipeUsername, recipePassword FROM recipe_users WHERE recipeUsername = :username and recipePassword = :password';
     
@@ -36,6 +37,9 @@
             $errorMsg = "Invalid Username or Password";
             $validuser = false;
         }
+    }catch (PDOException $e){
+        $errorMsg = "Issues with progam, error message: " . $e->getMessage();;
+    }
     
     }
     else{
@@ -48,6 +52,7 @@
 <html lang="en">
 <?php
         if($validuser){
+            try{
             require 'recipeDbConnect.php';
 
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -77,7 +82,9 @@
             $fp = fopen('recipeIngredients.json', 'w');
             fwrite($fp, json_encode($data, JSON_PRETTY_PRINT));
             fclose($fp);
-
+        }catch (PDOException $e){
+            $errorMsg = "Issues with progam, error message: " . $e->getMessage();;
+        }
     ?>
 <head>
     <meta charset="UTF-8">
@@ -160,12 +167,12 @@
                             ', this.value)"> <label for="ingredientSize">1X</label> <input type="radio" id="twoTimesSize" name="ingredientSize" value="2" onchange="changeIngredientSize(' + i + ", " + recipe.getRecipeID() + 
                             ', this.value)"> <label for="ingredientSize">2X</label> <input type="radio" id="threeTimesSize" name="ingredientSize" value="3" onchange="changeIngredientSize(' + i + ", " + recipe.getRecipeID() + 
                         ', this.value)"> <label for="ingredientSize">3X</label></div> <p><strong> Ingredients: </strong> </p> <ul>' 
-                        + selectedRecipeIngredients + '</ul><p> <strong> Instructions: </strong> </p><div id="instructions"><p>' + recipe.getRecipeInstructions() + '</p></div></div><a" href="deleteRecipe.php?recipeID=' + recipe.getRecipeID() + '"><button id="deleteRecipeButton" >Delete Recipe</button></a>';
+                        + selectedRecipeIngredients + '</ul><p> <strong> Instructions: </strong> </p><div id="instructions"><p>' + recipe.getRecipeInstructions() + '</p></div></div><a id="deleteRecipeJS" href="deleteRecipe.php?recipeID=' + recipe.getRecipeID() + '"><button id="deleteRecipeButton">Delete Recipe</button></a>';
                     }
             }
             document.querySelector('#selectedRecipe').innerHTML = selectedRecipe;
             document.querySelector("#selectedRecipe").style.visibility = "visible";
-            document.querySelector('#deleteRecipeButton').addEventListener("click", 
+            document.querySelector('#deleteRecipeJS').addEventListener("click", 
                 function (event) {
                     event.preventDefault();
                     if (confirm('Are you sure you want to delete this recipe?')) {
@@ -272,6 +279,7 @@
     </nav>
     <div id="recipesContainer">
         <h3 class="title">All Recipies</h3>
+        <span><?php echo $errorMsg; ?></span>
         <div id="recipeBox"></div>
     </div>
     <div id="selectedRecipe"></div>
@@ -291,6 +299,9 @@
         <link rel="stylesheet" href="stylesheets/style.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@400;700&display=swap" rel="stylesheet">
         <title>Recipe Home</title>
         <header>
@@ -306,8 +317,9 @@
             </nav>
             <div id="signOnContainer">
                 <h3 class="title">Admin Sign On</h3>
+                <span><?php echo $errorMsg ?></span>
                 <form method="POST" action="adminSignOn.php">
-                    <span><?php echo $errorMsg ?></span>
+                    
                     <p>
                         <label for="inUsername">Username:</label>
                         <input name="inUsername" id="inUsername" type="text">

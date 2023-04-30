@@ -1,7 +1,9 @@
 <?php
 
     $date = date('Y');
-    
+    $errorMsg = "";
+    $showForm = true;
+
     session_start();
 
     if(isset($_SESSION['validuser'])){
@@ -10,31 +12,50 @@
         $validuser = false;
     }
 
-    if(isset($_POST['submit']) && $_POST['phone'] == ""){
-           
+    if(isset($_POST['submit'])){
+        if($_POST['phone'] == ""){
 
-        $name = $_POST['name'];
-        $email = $_POST['email'];
-        $message = $_POST['message'];
-        $fullDate = date_create();
+            if($_POST['name'] == "" || $_POST['email'] == "" || $_POST['message'] == ""){
+                $errorMsg = "Please fill out all fields";
+
+            }else{
+                $name = $_POST['name'];
+                $email = $_POST['email'];
+                $message = $_POST['message'];
+                $fullDate = date_create();
+            
+                $fromEmail = "kaitlynbriggs@kaitlynbriggs.name";
+                $headers = "MIME-Version: 1.0" . "\r\n"; 
+                $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n"; 
+                $headers .= "From: $fromEmail" . "\r\n";
+    
+                $emailContent = "We recieved your message from our Recipe Manager site.";
+                
+                $contactEmailMessage = "New Email Contact Form Entry: ";
+                $contactEmailMessage .= "Contact Name: " . $name;
+                $contactEmailMessage .= "Email Address: " . $email;
+                $contactEmailMessage .= "Message: " . $message;
+                $contactEmailMessage .= "Date of Response: " . date_format($fullDate, "m/d/Y");
+    
+                try{
+                    mail($email, "Your message was recieved!", $emailContent, $headers);
+                    mail("kaitlynbriggs99@gmail.com", "New Contact Form Response", $contactEmailMessage, $headers);
+                    $showForm = false;
+                }catch (PDOException $e){
+                    $errorMsg = "Issues with progam, error message: " . $e->getMessage();;
+                }
+            }
+            
+        }else{
+            $errorMsg = "Your contact request did not pass the honeypot test, therefore your message was not sent. ";
+            $showForm = true;
+        }
+
         
-        $fromEmail = "kaitlynbriggs@kaitlynbriggs.name";
-        $headers = "MIME-Version: 1.0" . "\r\n"; 
-        $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n"; 
-	    $headers .= "From: $fromEmail" . "\r\n";
+    }
+    if(!$showForm){
 
-        $emailContent = "We recieved your message from our Recipe Manager site.";
-
-        $contactEmailMessage = "New Email Contact Form Entry: ";
-        $contactEmailMessage .= "Contact Name: " . $name;
-        $contactEmailMessage .= "Email Address: " . $email;
-        $contactEmailMessage .= "Message: " . $message;
-        $contactEmailMessage .= "Date of Response: " . date_format($fullDate, "m/d/Y");
-
-
-        mail($email, "Your message was recieved!", $emailContent, $headers);
-        mail("kaitlynbriggs99@gmail.com", "New Contact Form Response", $contactEmailMessage, $headers);
-
+      
     ?>
     <!DOCTYPE html>
 <html lang="en">
@@ -44,6 +65,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="stylesheets/style.scss">
     <link rel="stylesheet" href="stylesheets/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@400;700&display=swap" rel="stylesheet">
@@ -70,6 +94,7 @@
     </nav>
     <div id="contactContainer">
         <h3 class="title">Thank you for your message!</h3>
+        <span><?php echo $errorMsg; ?></span>
         <p>We recieved your message and should contact you soon!</p>
     </div>
     <footer>
@@ -90,6 +115,7 @@
     </nav>
     <div id="contactContainer">
         <h3 class="title">Thank you for your message!</h3>
+        <span><?php echo $errorMsg; ?></span>
         <p>We recieved your message and should contact you soon!</p>
     </div>
     <footer>
@@ -108,6 +134,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="stylesheets/style.scss">
     <link rel="stylesheet" href="stylesheets/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@400;700&display=swap" rel="stylesheet">
@@ -134,6 +163,7 @@
     </nav>
     <div id="contactContainer">
         <h3 class="title">Contact</h3>
+        <span><?php echo $errorMsg; ?></span>
         <form action="contact.php" method="POST">
             <p>
                 <label for="name">Name: </label>
@@ -175,6 +205,7 @@
     </nav>
     <div id="contactContainer">
         <h3 class="title">Contact</h3>
+        <span><?php echo $errorMsg; ?></span>
         <form action="contact.php" method="POST">
             <p>
                 <label for="name">Name: </label>
@@ -184,7 +215,7 @@
                 <label for="email">Email: </label>
                 <input name="email" id="email" type="email">
             </p>
-            <p class="hide">
+            <p id="hide">
                 <label for="phone">Phone: </label>
                 <input name="phone" id="phone" type="text" value="">
             </p>
