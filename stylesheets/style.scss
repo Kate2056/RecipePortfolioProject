@@ -1,7 +1,15 @@
 $secondaryFontColor: white;
-$accentColor: rgb(111, 24, 24);
-$accentColorDarker:rgb(94, 20, 20);
-$containerBackground: rgb(213, 210, 210);
+$accentColor: rgb(137, 17, 17);
+$accentColorDarker:rgb(115, 12, 12);
+$containerBackground: rgb(244, 244, 244);
+
+@mixin fontStyle{
+    font-family: 'Noto Serif', serif;
+}
+
+@mixin underlineText{
+    border-bottom:3px solid $accentColor;
+}
 
 #hide, #addRecipeContainer #hide{
     display:none;
@@ -22,26 +30,27 @@ header {
         width:100%;
         height:100%;
         object-position:0 40%;
-        opacity: 90%;
+        
     }
 
     h1{
-        color:white;
+        color:$secondaryFontColor;
         position:absolute;
         z-index: 2;
-        top: 10%;
+        top: 20%;
         left: 50%;
         transform: translate(-50%, -10%);
         -o-transform: translate(-50%, -10%);
         -ms-transform: translate(-50%, -10%);
         -moz-transform: translate(-50%, -10%);
-        font-size:70px;
+        font-size:60px;
         width:50%;
         font-weight:700;
+        @include fontStyle;
     }
 
     h3{
-        color:white;
+        color:rgb(240, 238, 238);
         position:absolute;
         z-index: 2;
         top: 60%;
@@ -52,11 +61,12 @@ header {
         -moz-transform: translate(-50%, -10%);
         font-size:50px;
         width:50%;
+        @include fontStyle;
     }
 
     #signOut{
         left:90%;
-        top:20%;
+        top:40%;
 
         a{
             color:$secondaryFontColor;
@@ -107,12 +117,12 @@ nav{
 }
 
 body{
-    background-color: $secondaryFontColor;
+    background-color: $containerBackground;
     border-radius:2px;
     width:100%;
     min-height:700px;
     font-size:20px;
-    font-family: 'Old Standard TT', serif;
+    @include fontStyle;
     margin-top:0;
     margin-left:0;
 }
@@ -176,6 +186,7 @@ div[id*="Container"]{
     
 }
 
+
 #recipesContainer {
     width:90%;
     
@@ -187,11 +198,10 @@ div[id*="Container"]{
     .recipeCard{
         background-color: white;
         margin:10px;
-        border-radius:5px;
-        box-shadow: 5px 5px 8px 5px #a6a5a5;
+        
 
         .recipeTitle{
-            border-bottom:5px solid $accentColorDarker;
+            @include underlineText;
             width:60%;
             margin:auto;
         }
@@ -201,18 +211,25 @@ div[id*="Container"]{
             width:70%;
             object-fit:cover;
         }
+
     }
 
     .recipeCard:hover{
-        background-color: rgb(240, 239, 239);
+        background-color: rgb(255, 254, 254);
+        box-shadow: 5px 5px $accentColor;
+        transform:translateY(-3px);
     }
+    
     }
+
+    
 }
 #selectedRecipe{
     width:70%;
     background-color:$containerBackground;
     margin:auto;
     padding-top:10px;
+    padding-bottom:10px;
     margin-top:10px;
 
     p, h4{
@@ -220,7 +237,7 @@ div[id*="Container"]{
     }
 
     .recipeTitle{
-        border-bottom:5px solid $accentColorDarker;
+        @include underlineText;
         width:60%;
         margin:auto;
         font-size:30px;
@@ -262,6 +279,24 @@ div[id*="Container"]{
     #ingredientSizeRadio input[type="radio"]:checked{
         background-color: $accentColor;
     }
+
+    #deleteRecipeButton{
+        display:block;
+        margin:auto;
+        height:35px;
+        font-size:25px;
+        font-family: 'Old Standard TT', serif;
+        font-size:15px;
+        font-weight:bold;
+        border-radius:5px;
+        
+    }
+
+    #deleteRecipeButton:hover{
+        background-color: $accentColor;
+        color:$secondaryFontColor;
+
+    }
 }
 
 input{
@@ -273,7 +308,7 @@ input{
     font-size:30px;
     margin:auto;
     text-align:center;
-    border-bottom:5px solid $accentColorDarker;
+    @include underlineText;
     padding:5px;
 }
 
@@ -292,19 +327,18 @@ footer{
             object-fit: cover;
             width:100%;
             height:100%;
-            object-position:30% 60%;
-            opacity: 90%;
+            object-position:40% 60%;
         }
     
         h1{
-            top: 20%;
-            font-size:40px;
+            top: 30%;
+            font-size:35px;
             width:90%;
         }
     
         h3{
-            top: 60%;
-            font-size:30px;
+            top: 70%;
+            font-size:20px;
             width:60%;
         }
     

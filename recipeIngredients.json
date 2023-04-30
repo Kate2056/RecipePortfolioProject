@@ -383,5 +383,96 @@
         "ingredientMeasurement": "Tbsp",
         "ingredientAmount": 2,
         "ingredientName": "Cooking Oil"
+    },
+    {
+        "recipeID": 42,
+        "ingredientID": 74,
+        "ingredientMeasurement": "Cup",
+        "ingredientAmount": 6,
+        "ingredientName": "Peaches, chopped"
+    },
+    {
+        "recipeID": 42,
+        "ingredientID": 75,
+        "ingredientMeasurement": "Cup",
+        "ingredientAmount": 0.5,
+        "ingredientName": "Sugar"
+    },
+    {
+        "recipeID": 42,
+        "ingredientID": 76,
+        "ingredientMeasurement": "Tbsp",
+        "ingredientAmount": 1,
+        "ingredientName": "Flour"
+    },
+    {
+        "recipeID": 42,
+        "ingredientID": 77,
+        "ingredientMeasurement": "Tbsp",
+        "ingredientAmount": 1,
+        "ingredientName": "Lemon Zest"
+    },
+    {
+        "recipeID": 42,
+        "ingredientID": 78,
+        "ingredientMeasurement": "Tbsp",
+        "ingredientAmount": 1,
+        "ingredientName": "Lemon Juice"
+    },
+    {
+        "recipeID": 42,
+        "ingredientID": 79,
+        "ingredientMeasurement": "Tbsp",
+        "ingredientAmount": 3,
+        "ingredientName": "Amaretto"
+    },
+    {
+        "recipeID": 42,
+        "ingredientID": 80,
+        "ingredientMeasurement": "tsp",
+        "ingredientAmount": 0.25,
+        "ingredientName": "Nutmeg"
+    },
+    {
+        "recipeID": 42,
+        "ingredientID": 81,
+        "ingredientMeasurement": "tsp",
+        "ingredientAmount": 1,
+        "ingredientName": "Cinnamon"
+    },
+    {
+        "recipeID": 42,
+        "ingredientID": 82,
+        "ingredientMeasurement": "tsp",
+        "ingredientAmount": 0.25,
+        "ingredientName": "Salt"
+    },
+    {
+        "recipeID": 42,
+        "ingredientID": 83,
+        "ingredientMeasurement": "Tbsp",
+        "ingredientAmount": 3,
+        "ingredientName": "Butter, diced"
+    },
+    {
+        "recipeID": 42,
+        "ingredientID": 84,
+        "ingredientMeasurement": null,
+        "ingredientAmount": 2,
+        "ingredientName": "Pie Crusts"
+    },
+    {
+        "recipeID": 42,
+        "ingredientID": 85,
+        "ingredientMeasurement": null,
+        "ingredientAmount": 1,
+        "ingredientName": "Egg"
+    },
+    {
+        "recipeID": 42,
+        "ingredientID": 86,
+        "ingredientMeasurement": "Tbsp",
+        "ingredientAmount": 1,
+        "ingredientName": "Water"
     }
 ]

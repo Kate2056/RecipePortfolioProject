@@ -88,6 +88,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
     <title>Recipe Home</title>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="Ingredient.js"></script>
@@ -157,7 +160,7 @@
                             ', this.value)"> <label for="ingredientSize">1X</label> <input type="radio" id="twoTimesSize" name="ingredientSize" value="2" onchange="changeIngredientSize(' + i + ", " + recipe.getRecipeID() + 
                             ', this.value)"> <label for="ingredientSize">2X</label> <input type="radio" id="threeTimesSize" name="ingredientSize" value="3" onchange="changeIngredientSize(' + i + ", " + recipe.getRecipeID() + 
                         ', this.value)"> <label for="ingredientSize">3X</label></div> <p><strong> Ingredients: </strong> </p> <ul>' 
-                        + selectedRecipeIngredients + '</ul><p> <strong> Instructions: </strong> </p><div id="instructions"><p>' + recipe.getRecipeInstructions() + '</p></div></div><a id="deleteRecipeButton" " href="deleteRecipe.php?recipeID=' + recipe.getRecipeID() + '"><button>Delete Recipe</button></a>';
+                        + selectedRecipeIngredients + '</ul><p> <strong> Instructions: </strong> </p><div id="instructions"><p>' + recipe.getRecipeInstructions() + '</p></div></div><a" href="deleteRecipe.php?recipeID=' + recipe.getRecipeID() + '"><button id="deleteRecipeButton" >Delete Recipe</button></a>';
                     }
             }
             document.querySelector('#selectedRecipe').innerHTML = selectedRecipe;
