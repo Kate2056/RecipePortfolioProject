@@ -76,7 +76,7 @@
                         let index = ingredients.findIndex(item => item.ingredientID === model.ingredientID);
                         let newIngredient = parseFloat(value) * model.ingredientAmount;
                         ingredients[index].setIngredientAmount(newIngredient);
-                        
+                        getRecipe(inRecipeID);
                     }
                 })
             });
