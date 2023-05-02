@@ -68,8 +68,8 @@
                                         $recipePrepTime = $_POST['recipePrepTime'];
                                         $recipeInstructions = $_POST['recipeInstructions'];
         
-                                        $sql = 'INSERT INTO recipes (recipeName, recipeDifficulty, recipeServingSize, recipePrepTime, recipeDescription, recipeImageSrc)
-                                            VALUES (:recipeName, :recipeDifficulty, :recipeServingSize, :recipePrepTime, :recipeInstructions, :recipeImgSrc) ';
+                                        $sql = 'INSERT INTO recipes (recipeName, recipeDifficulty, recipeServingSize, recipePrepTime, recipeDescription, recipeImageSrc, recipeImageName)
+                                            VALUES (:recipeName, :recipeDifficulty, :recipeServingSize, :recipePrepTime, :recipeInstructions, :recipeImgSrc, :recipeImageName) ';
         
                                         $stmt = $conn->prepare($sql);
         
@@ -79,6 +79,7 @@
                                         $stmt->bindParam(':recipePrepTime', $recipePrepTime);
                                         $stmt->bindParam(':recipeInstructions', $recipeInstructions);
                                         $stmt->bindParam(':recipeImgSrc', $imgContent);
+                                        $stmt->bindParam(':recipeImageName', $fileName);
         
                                         $stmt->execute();
                                         

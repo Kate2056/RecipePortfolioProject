@@ -7,6 +7,7 @@ class Recipe{
     recipePrepTime;
     recipeInstructions;
     recipeImage;
+    recipeImageName;
 
     //Constructor
     constructor(){
@@ -17,6 +18,7 @@ class Recipe{
         this.recipePrepTime = "";
         this.recipeInstructions = "";
         this.recipeImage = "";
+        this.recipeImageName = "";
     }
 
     //Getters and Setters
@@ -74,5 +76,13 @@ class Recipe{
    
     setRecipeImage(inRecipeImage){
         this.recipeImage = inRecipeImage;
+    }
+
+    getRecipeImageName(){
+        return this.recipeImageName;
+    }
+   
+    setRecipeImageName(inRecipeImageName){
+        this.recipeImageName = inRecipeImageName;
     }
 }

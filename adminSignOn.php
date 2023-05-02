@@ -56,7 +56,7 @@
             require 'recipeDbConnect.php';
 
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sql = "SELECT recipeID, recipeName, TO_BASE64(recipeImageSrc) AS recipeImageSrc , recipeDifficulty, recipeServingSize, recipePrepTime, recipeDescription FROM recipes";
+            $sql = "SELECT recipeID, recipeName, recipeImageName, recipeDifficulty, recipeServingSize, recipePrepTime, recipeDescription FROM recipes";
             $stmt = $conn->prepare($sql);
             $stmt->execute();
     
@@ -159,7 +159,7 @@
                 let recipe = recipes[i];
 
                 if(recipe.getRecipeID() == inRecipeID){
-                    selectedRecipe = '<div class="recipeCard"><h4 class="recipeTitle">' + recipe.getRecipeName() + '</h4><img class="recipeImg" src="data:image/jpeg;base64, ' + recipe.getRecipeImage() + 
+                    selectedRecipe = '<div class="recipeCard"><h4 class="recipeTitle">' + recipe.getRecipeName() + '</h4><img class="recipeImg" src="uploads\ ' + recipe.getRecipeImageName() + 
                         '" alt="Photo for ' + recipe.getRecipeName() + '"><p><strong>   Difficulty:</strong>  ' + recipe.getRecipeDifficulty() + '</p><p><strong> Serving Size:</strong>  ' + recipe.getRecipeServingSize() +
                         '</p><p><strong>  Prep Time:</strong>  ' + recipe.getRecipePrepTime() + 
                             '</p> <div id="ingredientSizeRadio"> <input type="radio" id="halfSize" name="ingredientSize" value="0.5" onchange="changeIngredientSize(' + i + ", " + recipe.getRecipeID() + 
@@ -230,7 +230,7 @@
                     currentRecipe.setRecipeServingSize(model.recipeServingSize);
                     currentRecipe.setRecipePrepTime(model.recipePrepTime);
                     currentRecipe.setRecipeInstructions(model.recipeDescription);
-                    currentRecipe.setRecipeImage(model.recipeImageSrc);
+                    currentRecipe.setRecipeImageName(model.recipeImageName);
                     recipes.push(currentRecipe);
                     console.log(recipes.length);
                 })
@@ -241,7 +241,7 @@
 
             recipes.forEach(function(recipe, index){
         
-                let currentRecipe = '<div class="recipeCard" onclick="getRecipe(' + recipe.getRecipeID() + ')"><img class="recipeImg" src="data:image/jpeg;base64, ' + recipe.getRecipeImage() + 
+                let currentRecipe = '<div class="recipeCard" onclick="getRecipe(' + recipe.getRecipeID() + ')"><img class="recipeImg" src="uploads/' + recipe.getRecipeImageName() + 
                     '" alt="Photo for ' + recipe.getRecipeName() + '"><h4 class="recipeTitle">' + recipe.getRecipeName() + 
                     '</h4><p><strong> Difficulty:</strong> ' + recipe.getRecipeDifficulty() + '</p><p><strong> Serving Size: </strong>  ' + recipe.getRecipeServingSize() +
                     '</p><p><strong> Prep Time:</strong> ' + recipe.getRecipePrepTime() + '</p></div>';
