@@ -159,7 +159,7 @@
                 let recipe = recipes[i];
 
                 if(recipe.getRecipeID() == inRecipeID){
-                    selectedRecipe = '<div class="recipeCard"><h4 class="recipeTitle">' + recipe.getRecipeName() + '</h4><img class="recipeImg" src="uploads\ ' + recipe.getRecipeImageName() + 
+                    selectedRecipe = '<div class="recipeCard"><h4 class="recipeTitle">' + recipe.getRecipeName() + '</h4><img class="recipeImg" src="uploads/' + recipe.getRecipeImageName() + 
                         '" alt="Photo for ' + recipe.getRecipeName() + '"><p><strong>   Difficulty:</strong>  ' + recipe.getRecipeDifficulty() + '</p><p><strong> Serving Size:</strong>  ' + recipe.getRecipeServingSize() +
                         '</p><p><strong>  Prep Time:</strong>  ' + recipe.getRecipePrepTime() + 
                             '</p> <div id="ingredientSizeRadio"> <input type="radio" id="halfSize" name="ingredientSize" value="0.5" onchange="changeIngredientSize(' + i + ", " + recipe.getRecipeID() + 
@@ -241,7 +241,7 @@
 
             recipes.forEach(function(recipe, index){
         
-                let currentRecipe = '<div class="recipeCard" onclick="getRecipe(' + recipe.getRecipeID() + ')"><img class="recipeImg" src="uploads/' + recipe.getRecipeImageName() + 
+                let currentRecipe = '<div class="recipeCard" onclick="getRecipe(' + recipe.getRecipeID() + ')"><img class="recipeImg" src="uploads/' + recipe.getRecipeImageName()  + 
                     '" alt="Photo for ' + recipe.getRecipeName() + '"><h4 class="recipeTitle">' + recipe.getRecipeName() + 
                     '</h4><p><strong> Difficulty:</strong> ' + recipe.getRecipeDifficulty() + '</p><p><strong> Serving Size: </strong>  ' + recipe.getRecipeServingSize() +
                     '</p><p><strong> Prep Time:</strong> ' + recipe.getRecipePrepTime() + '</p></div>';

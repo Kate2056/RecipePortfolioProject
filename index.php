@@ -116,7 +116,7 @@
                 let recipe = recipes[i];
 
                 if(recipe.getRecipeID() == inRecipeID){
-                    selectedRecipe = '<div class="recipeCard"><h4 class="recipeTitle">' + recipe.getRecipeName() + '</h4><img class="recipeImg" src="data:image/jpeg;base64, ' + recipe.getRecipeImage() + 
+                    selectedRecipe = '<div class="recipeCard"><h4 class="recipeTitle">' + recipe.getRecipeName() + '</h4><img class="recipeImg" src="uploads/' + recipe.getRecipeImageName() + 
                         '" alt="Photo for ' + recipe.getRecipeName() + '"><p><strong>   Difficulty:</strong>  ' + recipe.getRecipeDifficulty() + '</p><p><strong> Serving Size:</strong>  ' + recipe.getRecipeServingSize() +
                         '</p><p><strong>  Prep Time:</strong>  ' + recipe.getRecipePrepTime() + 
                             '</p> <div id="ingredientSizeRadio"> <input type="radio" id="halfSize" name="ingredientSize" value="0.5" onchange="changeIngredientSize(' + i + ", " + recipe.getRecipeID() + 
